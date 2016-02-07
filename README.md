@@ -2,16 +2,16 @@ RoboRIO and Eclipse 2016 OpenCV Libraries (with Java)
 ===================
 
 Attached is a compiled version of the OpenCV 2.4.10 libraries, generously made public by Team 2168: 
--->https://github.com/Team2168/2168_Vision_Example
+* https://github.com/Team2168/2168_Vision_Example
 
 I was able to get these libraries on the RoboRIO and running vision processing natively. It ended up requiring very little CPU usage and became a much better alternative to off board processors (which have power related issues).
 
 Here is the details of the systems I used when I tested (Last tested 2/6/16)
--> Eclipse Mars 4.5.1
--> OpenCV 2.4.1
--> Installed through Macbook Pro running OSX El Capitan
--> FRC 2016 Season: Stronghold
--> Java JRE SE 1.8
+* Eclipse Mars 4.5.1
+* OpenCV 2.4.1
+* Installed through Macbook Pro running OSX El Capitan
+* FRC 2016 Season: Stronghold
+* Java JRE SE 1.8
 
 ### How to Install OpenCV on the RoboRIO
 
