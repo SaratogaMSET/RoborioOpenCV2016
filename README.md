@@ -37,13 +37,14 @@ Here is the details of the systems I used when I tested (Last tested 2/6/16)
 - Now the RoboRIO should have Internet!
 
 ### To use in Java with Eclipse
-1. Create a new Java Project
-2. Copy the _Libraries folder to your development machine
+1. Create a new Java WPILIB Robot Project
+2. Copy the _Libraries folder to your Eclipse IDE
 3. add _Libraries/softFP/lib_OpenCV/java/opencv-2410.jar to your java project build path by `right clicking on project > Configure Build Path >  Add External Jar` and then select the appropriate location of the jar.
-4. import org.opencv.core.Core; and any other libraries (look up opencv Java documentation for help)
+4. import org.opencv.core.Core; and any other libraries (look up Opencv Java documentation for help)
 5. Open up the build.xml, and to the last line before </project> write, `<var name="classpath" value="${classpath}:/path/to/_Libraries/softFP/lib_OpenCV/java/opencv-2410.jar"/>`. This basically tells the builder where to look when compiling. Consider using ${user.home} if you are using multiple computers, and then uniformly installing everyone's folder in the same place (for example, *value="${classpath}:${user.home}/git/RoborioOpenCV2016/_Libraries/softFP/lib_OpenCV/java/opencv-2410.jar*). If you are transferring to a new computer, make sure to verify this every time. Save and close build.xml.
 6. Now, any place you want to run OpenCV code in your program, type in Eclipse: `System.load("/usr/local/lib/lib_OpenCV/java/libopencv_java2410.so");` so that the roboRIO knows where it is supposed to pull the library from.
 7. You should be good to go!
+8. If you are a member of Team 649, check out the Vision Test Repository for an example of code that works.
 
 ### Pulling from a Video Stream
 We used an IP Axis Camera 206, but most of this should work with any IP camera. Verify that the stream works on your web browser if you are running into errors.
