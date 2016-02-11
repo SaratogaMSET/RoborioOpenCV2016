@@ -15,11 +15,11 @@ Here is the details of the systems I used when I tested (Last tested 2/6/16)
 
 ### How to Install OpenCV on the RoboRIO
 
-**Overview:** We are going to transfer over the libraries using rsync (on Mac or Linux), and then set up the environment varibles to work with the libraries.
+**Overview:** We are going to transfer over the libraries using rsync (on Mac or Linux), and then set up the environment variables to work with the libraries.
 
 1. Transfer to the lib_OpenCV folder inside of _Libraries/softfp/ to the Roborio's /usr/local/lib directory (such that you have /usr/local/lib/lib_OpenCV/ on the RoboRio).
 2. FOR MAC/LINUX: Once the roboRIO is connected to Internet, install rsync by first ssh'ing in : `ssh admin@roboRIO-[TEAM_NUMBER]-FRC.local` and if it connects, it will prompt for a password (for the admin account, or whatever account you choose to SSH into). Then, verify the connection by running `ping www.google.com` from the roboRIO shell. You should get a Reply. Next, run `opkg update` followed by `opkg install rsync`
-3. Exit the roboRIO shell and run (in your terminal on Linux or Mac) `rsync -a path/to/_Libraries/softfp/lib_OpenCV admin@roboRIO-[TEAM_NUMBER]-FRC.local:/usr/local/lib/`
+3. Exit the roboRIO shell and run (in your terminal on Linux or Mac) `rsync -a path/to/_Libraries/softfp/lib_OpenCV admin@roboRIO-[TEAM_NUMBER]-FRC.local:/usr/local/lib/`. IMPORTANT: If you have already used rsync to set up a roborio with the same identifier or IP address, you may get the error `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!` in terminal. To fix, call `ssh-keygen -R [HOST_NAME]`, where `HOST_NAME` is most likely `roborio-[TEAM_NUMBER]-frc.local`.
 4. Now SSH back into the Roborio with the same command as specified earlier
 5. In the RoboRio terminal type `vi /etc/ld.so.conf.d/opencv.conf`, a new file will open inside the terminal window
 6. Hit the `i` key to enter insert mode
@@ -34,7 +34,7 @@ Here is the details of the systems I used when I tested (Last tested 2/6/16)
 >If using windows you can use WinSCP, if using linux or putty use rsync instead of cp command because the files contain symlinks. You will have to install rsync on the Rio first using opkg update, opkg install rsync, while connected to the internet. TO CONNECT TO THE INTERNET (this is how we did it, one of many ways)
 - Connect the RoboRIO to a Windows computer using an Ethernet cable
 - Go to Network settings and turn on Wifi Sharing
-- Now the RoboRIO should have Internet!
+- Now the RoboRIO should have Internet! If not, try a different computer and follow the same steps
 
 ### To use in Java with Eclipse
 1. Create a new Java WPILIB Robot Project
