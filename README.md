@@ -46,6 +46,22 @@ Here is the details of the systems I used when I tested (Last tested 2/6/16)
 7. You should be good to go!
 8. If you are a member of Team 649, check out the Vision Test Repository for an example of code that works.
 
+##Common Error Troubleshooting
+
+#####`GLib-GObject-CRITICAL **: g_object_set: assertion 'G_IS_OBJECT' (object) failed`
+
+We ran into this error when trying to call VideoCapture.open(). As far as we can tell, this Glib error corresponds to the G_STREAMER class not being updated to run with the current opencv build, which is directly responsible for the functioning of VideoCapture.
+
+The easiest fix our team found was to install these packages through the RobotPy opkg feed on your RoboRIO. Although this is a work around that does technically duplicate the space in your roborio with the opencv packages, you are free to uninstall the packages detailed here when you are done. All this process does is update G_STREAMER and allow VideoCapture to pull from IP cameras. More details for the roborio can be found here: https://github.com/robotpy/roborio-opencv
+
+1. Create a `.conf` file in `/etc/opkg` (e.g. `/etc/opkg/robotpy.conf`)
+containing the following line: `src/gz robotpy http://www.tortall.net/~robotpy/feeds/2016`
+2. Once the feed is added, issue an `opkg update` and then you can install
+packages using the following commands (requires internet access).
+3. For Java, run `opkg install opencv3-java` while still connected
+4. Do another `ldconfig` just because we are superstitious
+
+
 ### Pulling from a Video Stream
 We used an IP Axis Camera 206, but most of this should work with any IP camera. Verify that the stream works on your web browser if you are running into errors.
 
